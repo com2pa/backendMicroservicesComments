@@ -1,34 +1,37 @@
 const mongoose= require('mongoose');
 // modelo las base datos
 // documents 
-const userSchema =new mongoose.Schema({
-    name: String,           
-    email:String,        
-    password:String,
-             
-    role:{
-        type:String,
-        // enum:['representante','maestro','controDeEstudio','director']
-        default:'user'
-    },       
-    verificacion:{
-        type:Boolean,
-        default:false
-    },
-    Posts:[{
-        type: mongoose.Schema.Types.ObjectId,
-        ref:'Post'
-    }],
-    comments:[{
-        type: mongoose.Schema.Types.ObjectId,
-        ref:'Comment'
-    }]
-    
-    
+const userSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  password: String,
 
-    
-    
-})
+  role: {
+    type: String,
+    // enum:['representante','maestro','controDeEstudio','director']
+    default: 'user',
+  },
+  verificacion: {
+    type: Boolean,
+    default: false,
+  },
+  Posts: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Post',
+    },
+  ],
+  comments: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Comment',
+    },
+  ],
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  },
+});
 
 // funcion para transformar datos cuando se solicite 
 // returnedObject= lo que estoy solicitendo
