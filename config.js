@@ -1,6 +1,6 @@
 const PAGE_URL =
   process.env.NODE_ENV === 'production'
-    ? 'https://microservicescomment.onrender.com'
+    ? 'https://micro-comment.onrender.com'
     : 'http://localhost:5173';
 
     const MONGO_URL = process.env.NODE_ENV === 'production'
