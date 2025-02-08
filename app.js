@@ -6,8 +6,6 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser');
 const { MONGO_URL } = require('./config');
 
-const refresRouter = require('./controllers/refres');
-const { usertExtractor } = require('./middleware/auth');
 const commentRouter = require('./controllers/comments');
 
 
@@ -28,7 +26,6 @@ app.use(cookieParser())
 
 // rutas backEnd
 
-app.use('/api/refres', usertExtractor, refresRouter)
 app.use('/api/comment',commentRouter)
 
 
