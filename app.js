@@ -19,7 +19,25 @@ const commentRouter = require('./controllers/comments');
     console.log(error);
   }
 })();
-app.use(cors())
+
+
+const allowedOrigins = [
+  'https://blog-microservices.onrender.com',
+  'http://localhost:5173',
+];
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Origen no permitido por CORS'));
+    }
+  },
+  methods: 'GET,POST,PUT,DELETE',
+  credentials: true,
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser())
 // app.use(morgan('tiny'))
