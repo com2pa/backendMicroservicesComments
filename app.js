@@ -25,8 +25,7 @@ const allowedOrigins = [
   'https://blog-microservices.onrender.com', // Frontend
   'https://micro-post.onrender.com', // Otros microservicios
   'https://micro-user-bju8.onrender.com',
-  'https://micro-comment.onrender.com',
-  'http://localhost:5173',
+  'https://micro-comment.onrender.com',  
 ];
 
 const corsOptions = {
@@ -40,6 +39,12 @@ const corsOptions = {
   methods: 'GET,POST,PUT,DELETE',
   credentials: true,
 };
+// app.use(cors({
+//       origin: '*', // Permite todas las solicitudes (¡no seguro para producción!)
+//       methods: 'GET,POST,PUT,DELETE',
+//       credentials: true,
+//     })  
+// );
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser())
